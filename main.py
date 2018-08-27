@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
 
 import os
+import subprocess
 
 
 class Supervisor:
     def __init__(self):
+        self.interpreter = 'python'
         self.project_url = 'https://projecteuler.net/'
-        self.file_path = './problems'
+        self.dir_path = './problems'
         self.problem_number = 0
         self.base_filename = 'p{}.py'
         self.filename = ''
-        self.base_run_command = 'python {}/{}'
-        self.run_command = ''
+        self.file_path = ''
 
     def get_problem_number(self):
         while not self.problem_number:
@@ -23,20 +24,26 @@ class Supervisor:
         self.filename = self.base_filename.format(self.problem_number)
 
     def search_file(self):
-        return True if self.filename in os.listdir(self.file_path) else False
+        return True if self.filename in os.listdir(self.dir_path) else False
 
-    def set_run_command(self):
-        self.run_command = self.base_run_command.format(self.file_path, self.filename)
+    def set_file_path(self):
+        self.file_path = os.path.join(self.dir_path, self.filename)
 
+    @staticmethod
+    def bytes_to_str(b):
+        return b.decode('utf-8')
+        
     def run(self):
         print('- Project Euler Problems -\n\033[4;1;34m{}\033[0m\n'.format(self.project_url))
         self.get_problem_number()
         self.set_filename()
-        self.set_run_command()
+        self.set_file_path()
         print('=' * 25)
         if self.search_file():
             print('Result of problem {} is:\033[1;32m'.format(self.problem_number))
-            os.system(self.run_command)
+            ext_script = subprocess.Popen([self.interpreter, self.file_path], stdout=subprocess.PIPE)
+            out, err = ext_script.communicate()
+            print(self.bytes_to_str(out))
         else:
             print('\033[1;31mProblem not found.')
 

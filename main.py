@@ -3,6 +3,8 @@
 import os
 import subprocess
 
+from time import time
+
 
 class Supervisor:
     def __init__(self):
@@ -40,10 +42,13 @@ class Supervisor:
         self.set_file_path()
         print('=' * 25)
         if self.search_file():
-            print('Result of problem {} is:\033[1;32m'.format(self.problem_number))
+            print('Computing...')
+            t_0 = time()
             ext_script = subprocess.Popen([self.interpreter, self.file_path], stdout=subprocess.PIPE)
             out, err = ext_script.communicate()
-            print(self.bytes_to_str(out))
+            t_delta = time() - t_0
+            print('Result of problem {} is: \033[1;32m{}\033[0mCPU took {:.4} seconds'
+                  .format(self.problem_number, self.bytes_to_str(out), t_delta))
         else:
             print('\033[1;31mProblem not found.')
 

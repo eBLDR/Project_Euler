@@ -11,12 +11,15 @@ def is_prime(n):
     for i in range(1, n):
         if n % i == 0:
             div.append(i)
-    return True if len(div) == 1 else False
+            if len(div) > 1:
+                return False
+    else:
+        return True
 
 
 def find_prime_by_index(i):
     primes = []
-    n = 0
+    n = 2
     while len(primes) < i:
         if is_prime(n):
             primes.append(n)

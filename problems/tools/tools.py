@@ -3,7 +3,7 @@ Set of tools.
 """
 
 
-def find_factors(n):
+def find_prime_factors(n):
     factors = []
     while n != 1:
         for i in range(2, n + 1):

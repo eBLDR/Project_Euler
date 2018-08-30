@@ -4,17 +4,7 @@ we can see that the 6th prime is 13.
 
 What is the 10001st prime number?
 """
-
-
-def is_prime(n):
-    div = []
-    for i in range(1, n):
-        if n % i == 0:
-            div.append(i)
-            if len(div) > 1:
-                return False
-    else:
-        return True
+from tools.tools import is_prime
 
 
 def find_prime_by_index(i):

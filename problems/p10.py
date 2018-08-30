@@ -3,17 +3,7 @@ The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
 
 Find the sum of all the primes below two million.
 """
-
-
-def is_prime(n):
-    div = []
-    for i in range(1, n):
-        if n % i == 0:
-            div.append(i)
-            if len(div) > 1:
-                return False
-    else:
-        return True
+from tools.tools import is_prime
 
 
 def primes_below_limit(l):

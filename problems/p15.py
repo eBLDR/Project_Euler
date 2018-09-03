@@ -8,16 +8,14 @@ from itertools import product
 
 
 def generate_truth_table(d):
-    return [i for i in product([i for i in range(TABLE_SIZE)], repeat=TABLE_SIZE)]
-
-
-def find_matches(n, array):
     match = 0
-    for r in array:
-        if sum(r) == n - 1:
+    gen = product([i for i in range(d)], repeat=d)
+    for i in gen:
+        if sum(i) == d - 1:
             match += 1
     return match
 
 
-TABLE_SIZE = 20
-print(find_matches(TABLE_SIZE, generate_truth_table(TABLE_SIZE)))
+GRID = 20
+TABLE_SIZE = GRID + 1
+print(generate_truth_table(TABLE_SIZE))

@@ -13,8 +13,6 @@ def primes_below_limit(l):
         if is_prime(n):
             primes.append(n)
         n += 1
-        if n % 1000 == 0:
-            print(n)
     return primes
 
 

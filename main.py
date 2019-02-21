@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+# -*- coding: utf8 -*-
 import os
 import subprocess
 
@@ -34,7 +34,7 @@ class Supervisor:
     @staticmethod
     def bytes_to_str(b):
         return b.decode('utf-8')
-        
+
     def run(self):
         print('- Project Euler Problems -\n\033[4;1;34m{}\033[0m\n'.format(self.project_url))
         self.get_problem_number()
@@ -50,7 +50,7 @@ class Supervisor:
             print('Result of problem {} is: \033[1;32m{}\033[0mCPU took {:.4} seconds'
                   .format(self.problem_number, self.bytes_to_str(out), t_delta))
         else:
-            print('\033[1;31mProblem not found.')
+            print('\033[1;31mProblem not found.\033[0m')
 
 
 if __name__ == '__main__':

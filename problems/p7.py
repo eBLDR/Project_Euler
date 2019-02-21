@@ -4,7 +4,7 @@ we can see that the 6th prime is 13.
 
 What is the 10001st prime number?
 """
-from tools.tools import is_prime
+from problems.tools.tools import is_prime
 
 
 def find_prime_by_index(i):

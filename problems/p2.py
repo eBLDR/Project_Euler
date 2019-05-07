@@ -10,7 +10,7 @@ exceed four million, find the sum of the even-valued terms.
 
 
 def fibonacci_series(upper_limit):
-    """ n = n-1 + n-2"""
+    """ n = n-1 + n-2 """
     seq = [1, 2]
     i = 0
     while True:
@@ -19,8 +19,7 @@ def fibonacci_series(upper_limit):
             seq.append(n)
             i += 1
         else:
-            break
-    return seq
+            return seq
 
 
 def sum_even_seq(seq):

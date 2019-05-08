@@ -6,7 +6,6 @@ What is the largest prime factor of the number 600851475143 ?
 from problems.tools.tools import find_prime_factors
 
 
-
 def max_in_seq(seq):
     return max(seq)
 

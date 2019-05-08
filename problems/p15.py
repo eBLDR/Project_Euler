@@ -1,5 +1,6 @@
 """
-Starting in the top left corner of a 2x2 grid, and only being able to move to the right and down,
+Starting in the top left corner of a 2x2 grid, and only being able
+to move to the right and down,
 there are exactly 6 routes to the bottom right corner.
 
 How many such routes are there through a 20x20 grid?
@@ -22,7 +23,8 @@ TABLE_SIZE = GRID + 1
 
 
 # It takes to long to compute, I have used maths based on a result set
-# the derivative progression is 3 + 1/3 + 1/6 + 1/10 + 1/15 + ... = 3 + SUM(1/n!) start on n=2
+# the derivative progression is
+# 3 + 1/3 + 1/6 + 1/10 + 1/15 + ... = 3 + SUM(1/n!) start on n=2
 def factorial(n):
     return sum([i for i in range(1, n + 1)])
 

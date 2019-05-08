@@ -3,14 +3,7 @@
 
 What is the sum of the digits of the number 2**1000?
 """
-
-
-def sum_digits(n):
-    r = 0
-    for i in str(n):
-        r += int(i)
-    return r
-
+from problems.tools.tools import sum_digits
 
 NUMBER = 2 ** 1000
 print(sum_digits(NUMBER))

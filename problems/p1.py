@@ -8,8 +8,7 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 
 def find_multiples(upper_limit, n):
     # upper_limit is not included
-    r = [i for i in range(n, upper_limit, n)]
-    return r
+    return [i for i in range(n, upper_limit, n)]
 
 
 def add_values(list_1, list_2):
@@ -20,5 +19,4 @@ def add_values(list_1, list_2):
 
 M1, M2 = 3, 5
 LIMIT = 1000
-result = add_values(find_multiples(LIMIT, M1), find_multiples(LIMIT, M2))
-print(result)
+print(add_values(find_multiples(LIMIT, M1), find_multiples(LIMIT, M2)))

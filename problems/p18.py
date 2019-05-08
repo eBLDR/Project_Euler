@@ -1,5 +1,6 @@
 """
-By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.
+By starting at the top of the triangle below and moving to adjacent numbers
+on the row below, the maximum total from top to bottom is 23.
 
    3
   7 4
@@ -29,7 +30,8 @@ TRIANGLE = """\
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23\
 """
 
-TRIANGLE = [[int(num) for num in line.split(' ')] for line in TRIANGLE.split('\n')]
+TRIANGLE = [[int(num) for num in line.split(' ')]
+            for line in TRIANGLE.split('\n')]
 
 
 def maximum_path_sum(triangle):

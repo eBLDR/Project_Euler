@@ -3,8 +3,10 @@ In the 20×20 grid below, four numbers along a diagonal line are 26, 63, 78, 14.
 
 The product of these numbers is 26 * 63 * 78 * 14 = 1788696.
 
-What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
+What is the greatest product of four adjacent numbers in the same direction
+(up, down, left, right, or diagonally) in the 20×20 grid?
 """
+from  problems.tools.tools import product_of_seq
 
 grid_raw = """08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
@@ -28,14 +30,6 @@ grid_raw = """08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48"""
 
 GRID = [[int(n) for n in line.split(' ')] for line in grid_raw.split('\n')]
-print(GRID)
-
-
-def product_seq(seq):
-    r = 1
-    for n in seq:
-        r *= n
-    return r
 
 
 def find_max_in_grid(grid, digits):
@@ -45,19 +39,20 @@ def find_max_in_grid(grid, digits):
             r = []
             if column + digits <= len(grid[row]):
                 horizontal = [grid[row][column + i] for i in range(digits)]
-                r.append(product_seq(horizontal))
+                r.append(product_of_seq(horizontal))
                 if row + digits <= len(grid):
-                    diagonal_1 = [grid[row + i][column + i] for i in range(digits)]
-                    r.append(product_seq(diagonal_1))
+                    diagonal_1 = [grid[row + i][column + i]
+                                  for i in range(digits)]
+                    r.append(product_of_seq(diagonal_1))
             if row + digits <= len(grid):
                 vertical = [grid[row + i][column] for i in range(digits)]
-                r.append(product_seq(vertical))
+                r.append(product_of_seq(vertical))
                 if column >= digits:
-                    diagonal_2 = [grid[row + i][column - i] for i in range(digits)]
-                    r.append(product_seq(diagonal_2))
-            if r:
-                if max(r) > max_:
-                    max_ = max(r)
+                    diagonal_2 = [grid[row + i][column - i]
+                                  for i in range(digits)]
+                    r.append(product_of_seq(diagonal_2))
+            if r and max(r) > max_:
+                max_ = max(r)
     return max_
 
 

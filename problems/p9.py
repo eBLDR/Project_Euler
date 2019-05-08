@@ -10,7 +10,7 @@ Find the product abc.
 
 
 def is_pythagorean_triplet(a, b, c):
-    return True if a**2 + b**2 == c**2 else False
+    return a ** 2 + b ** 2 == c ** 2
 
 
 def satisfy_condition(n):

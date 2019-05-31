@@ -24,7 +24,7 @@ def sum_digits(n):
     return r
 
 
-def proper_divisors(n: int) -> list:
+def proper_divisors(n):
     r = []
     for i in range(1, n):
         if n % i == 0:
@@ -53,10 +53,7 @@ def find_divisors(n):
 
 
 def is_prime(n):
-    div = []
-    for i in range(1, n):
+    for i in range(2, n):
         if n % i == 0:
-            div.append(i)
-            if len(div) > 1:
-                return False
+            return False
     return True

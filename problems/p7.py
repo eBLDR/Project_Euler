@@ -9,8 +9,11 @@ from problems.tools.tools import is_prime
 
 def find_prime_by_index(i):
     primes = []
+    # last_digit = ['1', '3', '7', '9']
     n = 2
     while len(primes) < i:
+        # Filter for performance, only numbers ending with these values can be prime
+        # if len(str(n)) > 1 and str(n)[-1] in last_digit:
         if is_prime(n):
             primes.append(n)
         n += 1

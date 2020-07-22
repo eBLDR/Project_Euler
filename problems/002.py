@@ -11,15 +11,14 @@ exceed four million, find the sum of the even-valued terms.
 
 def fibonacci_series(upper_limit):
     """ n = n-1 + n-2 """
-    seq = [1, 2]
-    i = 0
+    seq = [0, 1]
+
     while True:
-        n = seq[i] + seq[i + 1] if seq[i] + seq[i + 1] <= upper_limit else None
-        if n:
-            seq.append(n)
-            i += 1
-        else:
+        n = seq[-1] + seq[-2]
+        if n > upper_limit:
             return seq
+        seq.append(n)
+
 
 
 def sum_even_seq(seq):

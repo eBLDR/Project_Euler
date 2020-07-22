@@ -35,5 +35,5 @@ def count_total_score(names):
     return score
 
 
-FILENAME = 'resources/p22_names.txt'
+FILENAME = 'resources/022_names.txt'
 print(count_total_score(read_content(FILENAME)))

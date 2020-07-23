@@ -17,7 +17,7 @@ less than this limit.
 Find the sum of all the positive integers which cannot be written as the sum
 of two abundant numbers.
 """
-from problems.tools.tools import proper_divisors
+from data.tools.tools import proper_divisors
 
 
 def is_abundant(n):

@@ -1,19 +1,17 @@
-#!/usr/bin/env python3
-# -*- coding: utf8 -*-
 import os
 import subprocess
-
 from time import time
+
+from data import config
 
 
 class Supervisor:
     def __init__(self):
-        self.interpreter = 'python'
-        self.project_url = 'https://projecteuler.net/'
-        self.dir_path = os.path.join(os.getcwd(), 'problems')
+        self.interpreter = config.INTERPRETER
+        self.project_url = config.PROJECT_URL
+        self.dir_path = config.PROBLEMS_PATH
+
         self.problem_number = None
-        self.problem_number_digits = 3
-        self.base_filename = '{}.py'
         self.filename = ''
         self.file_path = ''
 
@@ -25,14 +23,14 @@ class Supervisor:
 
         # Add leading zeroes
         leading_zeroes = ''
-        for zero in range(self.problem_number_digits - len(number)):
+        for zero in range(config.PROBLEM_NUMBER_DIGITS - len(number)):
             leading_zeroes += '0'
 
         self.problem_number = leading_zeroes + number
         print(self.problem_number)
 
     def set_filename(self):
-        self.filename = self.base_filename.format(self.problem_number)
+        self.filename = config.BASE_FILENAME.format(self.problem_number)
 
     def search_file(self):
         return self.filename in os.listdir(self.dir_path)
@@ -58,19 +56,19 @@ class Supervisor:
             return
 
         print('Computing...')
+
         t_0 = time()
+        out, err = self.solve_problem()
+        t_delta = time() - t_0
+
+        print(
+            f'Result of problem {self.problem_number} is: \033[1;32m{self.bytes_to_str(out)}'
+            f'\033[0mCPU took {t_delta:.4} seconds.'
+        )
+
+    def solve_problem(self):
         ext_script = subprocess.Popen(
             [self.interpreter, self.file_path],
             stdout=subprocess.PIPE,
         )
-        out, err = ext_script.communicate()
-        t_delta = time() - t_0
-        print(
-            f'Result of problem {self.problem_number} is: \033[1;32m{self.bytes_to_str(out)}'
-            f'\033[0mCPU took {t_delta:.4} seconds'
-        )
-
-
-if __name__ == '__main__':
-    supervisor = Supervisor()
-    supervisor.run()
+        return ext_script.communicate()

@@ -10,7 +10,7 @@ For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22,
 
 Evaluate the sum of all the amicable numbers under 10000.
 """
-from problems.tools.tools import proper_divisors
+from data.tools.tools import proper_divisors
 
 
 def sum_of_proper_divisors(number):

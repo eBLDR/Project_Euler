@@ -3,7 +3,7 @@
 
 What is the sum of the digits of the number 2**1000?
 """
-from problems.tools.tools import sum_digits
+from data.tools.tools import sum_digits
 
 NUMBER = 2 ** 1000
 print(sum_digits(NUMBER))

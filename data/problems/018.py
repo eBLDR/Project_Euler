@@ -30,8 +30,10 @@ TRIANGLE = """\
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23\
 """
 
-TRIANGLE = [[int(num) for num in line.split(' ')]
-            for line in TRIANGLE.split('\n')]
+TRIANGLE = [
+    [int(num) for num in line.split(' ')]
+    for line in TRIANGLE.split('\n')
+]
 
 
 def maximum_path_sum(triangle):

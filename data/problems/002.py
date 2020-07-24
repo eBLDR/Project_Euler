@@ -20,7 +20,6 @@ def fibonacci_series(upper_limit):
         seq.append(n)
 
 
-
 def sum_even_seq(seq):
     r = []
     for i in seq:

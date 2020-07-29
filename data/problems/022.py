@@ -29,9 +29,11 @@ def calculate_score(position, name):
 
 def count_total_score(names):
     score = 0
+
     for position, name in enumerate(sorted(names)):
         name = name.replace('"', '')
         score += calculate_score(position + 1, name)
+
     return score
 
 

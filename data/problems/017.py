@@ -12,9 +12,9 @@ The use of "and" when writing out numbers is in compliance with British usage.
 import string
 
 
-def count_letters(l):
+def count_letters(list_words):
     r = 0
-    for word in l:
+    for word in list_words:
         for char in word.lower():
             if char in string.ascii_lowercase:
                 r += 1
@@ -23,13 +23,19 @@ def count_letters(l):
 
 def generate_word_list():
     word_list = []
-    units = {'1': 'one', '2': 'two', '3': 'three', '4': 'four', '5': 'five',
-             '6': 'six', '7': 'seven', '8': 'eight', '9': 'nine'}
-    ten_to_19 = {'10': 'ten', '11': 'eleven', '12': 'twelve', '13': 'thirteen',
+    units = {
+        '1': 'one', '2': 'two', '3': 'three', '4': 'four', '5': 'five',
+             '6': 'six', '7': 'seven', '8': 'eight', '9': 'nine'
+    }
+    ten_to_19 = {
+        '10': 'ten', '11': 'eleven', '12': 'twelve', '13': 'thirteen',
                  '14': 'fourteen', '15': 'fifteen', '16': 'sixteen',
-                 '17': 'seventeen', '18': 'eighteen', '19': 'nineteen'}
-    tenths = {'2': 'twenty', '3': 'thirty', '4': 'forty', '5': 'fifty',
-              '6': 'sixty', '7': 'seventy', '8': 'eighty', '9': 'ninety'}
+                 '17': 'seventeen', '18': 'eighteen', '19': 'nineteen'
+    }
+    tenths = {
+        '2': 'twenty', '3': 'thirty', '4': 'forty', '5': 'fifty',
+              '6': 'sixty', '7': 'seventy', '8': 'eighty', '9': 'ninety'
+    }
     and_ = 'and'
     hundred = 'hundred'
     thousand = 'thousand'

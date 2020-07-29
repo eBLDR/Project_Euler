@@ -20,10 +20,12 @@ import datetime
 def count_sundays_on_first(start_date, end_date):
     sundays_on_first = 0
     date = start_date
+
     while date <= end_date:
         if date.day == 1 and date.weekday() == 6:
             sundays_on_first += 1
         date += datetime.timedelta(days=1)
+
     return sundays_on_first
 
 

@@ -22,9 +22,9 @@ TABLE_SIZE = GRID + 1
 # print(generate_truth_table(TABLE_SIZE))
 
 
-# It takes to long to compute, I have used maths based on a result set
-# the derivative progression is
-# 3 + 1/3 + 1/6 + 1/10 + 1/15 + ... = 3 + SUM(1/n!) start on n=2
+# It takes to long to compute, using maths based on a result set we get
+# the derivative progression:
+# 3 + 1/3 + 1/6 + 1/10 + 1/15 + ... = 3 + SUM(1/n!); start on n=2
 def factorial(n):
     return sum([i for i in range(1, n + 1)])
 

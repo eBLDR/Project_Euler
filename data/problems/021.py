@@ -23,12 +23,14 @@ def is_pair_amicable(n, m):
 
 def find_all_amicable(limit):
     amicable = set()
+
     for i in range(1, limit):
         possible_friend = sum_of_proper_divisors(i)
         if possible_friend == i:
             continue
         if possible_friend < limit and is_pair_amicable(i, possible_friend):
             amicable.update({i, possible_friend})
+
     return amicable
 
 

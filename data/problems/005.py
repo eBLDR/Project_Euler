@@ -7,23 +7,30 @@ all of the numbers from 1 to 20?
 """
 
 
-def is_divisible(dvnd, dvsr):
-    return True if dvnd % dvsr == 0 else False
+def find_minimum(range_):
+    possible_number = 1
 
+    while True:
+        if all(
+            [
+                possible_number % n == 0 for n in range_
+            ]
+        ):
+            return possible_number
 
-def find_minimum(rng):
-    r = None
-    dvdn = 1
-    while not r:
-        match = True
-        for dvsr in rng:
-            if not is_divisible(dvdn, dvsr):
-                match = False
-                dvdn += 1
-                break
-        if match:
-            r = dvdn
-    return r
+        possible_number += 1
+
+        # Method 2 - probably more efficient
+        # match = True
+
+        # for divisor in range_:
+        #     if possible_number % divisor != 0:
+        #         match = False
+        #         possible_number += 1
+        #         break
+        #
+        # if match:
+        #     return possible_number
 
 
 RANGE = range(1, 21)

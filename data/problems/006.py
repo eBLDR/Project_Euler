@@ -15,21 +15,13 @@ hundred natural numbers and the square of the sum.
 """
 
 
-def square(n):
-    return n**2
-
-
 def sum_of_squares(rng):
-    return sum([square(n) for n in rng])
+    return sum([n**2 for n in rng])
 
 
 def square_of_sum(rng):
-    return square(sum([n for n in rng]))
-
-
-def difference(n1, n2):
-    return n1 - n2
+    return (sum([n for n in rng])) ** 2
 
 
 RANGE = range(1, 101)
-print(difference(square_of_sum(RANGE), sum_of_squares(RANGE)))
+print(square_of_sum(RANGE) - sum_of_squares(RANGE))

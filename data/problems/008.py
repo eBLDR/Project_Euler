@@ -32,8 +32,14 @@ digit_1000 = '73167176531330624919225119674426574742355349194934' \
 
 def product_split_str(s, digits):
     r = []
+
     for i in range(len(s) - digits + 1):
-        r.append(product_of_seq([int(d) for d in s[i:i + digits]]))
+        r.append(
+            product_of_seq(
+                [int(d) for d in s[i:i + digits]]
+            )
+        )
+
     return max(r)
 
 

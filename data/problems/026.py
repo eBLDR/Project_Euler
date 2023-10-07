@@ -19,13 +19,22 @@ in its decimal fraction part.
 """
 
 
-def calculate_recurring_cycle(number):
-    recurring = 1
+def calculate_recurring_cycle(number_string: str) -> str:
+    decimal_digits = number_string.split(".")[1] if "." in number_string else ""
 
-    for n in str(number):
-        pass
+    if not decimal_digits:
+        return ""
 
-    return recurring
+    for number_of_repeated_digits in range(1, len(decimal_digits)):
+        possible_repeated_digits = decimal_digits[:number_of_repeated_digits]
+
+        for init_index in range(number_of_repeated_digits, len(decimal_digits), number_of_repeated_digits):
+            if not possible_repeated_digits == decimal_digits[init_index: init_index + number_of_repeated_digits]:
+                break
+        else:
+            return possible_repeated_digits
+
+    return ""
 
 
 def find_max_recurring_cycle(max_denominator):
@@ -33,15 +42,14 @@ def find_max_recurring_cycle(max_denominator):
     max_recurring_denominator = None
 
     for denominator in range(2, max_denominator):
-        unit_fraction = calculate_recurring_cycle(1 / denominator)
-        recurring_cycle = calculate_recurring_cycle(unit_fraction)
+        length_recurring_cycle = len(calculate_recurring_cycle(str(1 / denominator)))
 
-        if calculate_recurring_cycle(unit_fraction) > max_recurring:
-            max_recurring = recurring_cycle
+        if length_recurring_cycle > max_recurring:
+            max_recurring = length_recurring_cycle
             max_recurring_denominator = denominator
 
     return max_recurring_denominator
 
 
-MAX_D = 1000
+MAX_D = 10
 print(find_max_recurring_cycle(MAX_D))
